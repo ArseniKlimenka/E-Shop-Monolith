@@ -12,15 +12,23 @@ namespace ElectroStore.Domain.Entities
         [Required(ErrorMessage = "Укажите как вас зовут")]
         public string Name { get; set; }
 
-        [Required(ErrorMessage = "Вставьте первый адрес доставки")]
+        [Required(ErrorMessage = "Вставьте  адрес доставки")]
+        [Display(Name = "Адрес проживания")]
         public string Line1 { get; set; }
+
+        [DataType(DataType.EmailAddress, ErrorMessage = "E-mail is not valid")]
+        [Display(Name = "Адрес электронной почты")]
         public string Line2 { get; set; }
+
+        [Display(Name = "Третий адрес")]
         public string Line3 { get; set; }
 
         [Required(ErrorMessage = "Укажите город")]
+        [Display(Name = "Город")]
         public string City { get; set; }
 
         [Required(ErrorMessage = "Укажите страну")]
+        [Display(Name = "Страна")]
         public string Country { get; set; }
 
         public bool GiftWrap { get; set; }
