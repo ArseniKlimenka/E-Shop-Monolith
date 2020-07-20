@@ -1,0 +1,19 @@
+﻿@using ElectroStore.WebUI.Models
+@using ElectroStore.WebUI.HtmlHelpers
+@model ProductListViewModel
+
+@{
+    ViewBag.Title = "Товарs";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+
+@foreach (var p in Model.Products)
+{
+    @Html.Partial("ProductSummary", p)
+}
+
+    <div class="btn-group pull-right">
+        @Html.PageLinks(Model.PagingInfo, x => Url.Action("List",
+            new { page = x, category = Model.CurrentCategory }))
+    </div>
