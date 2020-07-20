@@ -41,7 +41,7 @@ namespace ElectroStore.WebUI.Controllers
         {
             Product product = repository.Products
                 .FirstOrDefault(p => p.ProductId == prodId);
-
+            
             if (product != null)
             {
                 cart.RemoveLine(product);

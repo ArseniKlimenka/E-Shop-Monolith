@@ -31,9 +31,19 @@ namespace ElectroStore.Domain.Entities
         }
 
         public void RemoveLine(Product product)
-        {          
-           
-           lineCollection.RemoveAll(l => l.Product.ProductId == product.ProductId);            
+        {
+            CartLine line = lineCollection
+                .Where(g => g.Product.ProductId == product.ProductId)
+                .FirstOrDefault();
+            
+            if (line.Quantity == 1)
+            {
+                lineCollection.RemoveAll(l => l.Product.ProductId == product.ProductId);  
+            }
+            else
+            {
+                line.Quantity--;
+            }        
             
         }
 
