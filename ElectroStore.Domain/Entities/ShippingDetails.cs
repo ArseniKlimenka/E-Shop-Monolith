@@ -16,12 +16,10 @@ namespace ElectroStore.Domain.Entities
         [Display(Name = "Адрес проживания")]
         public string Line1 { get; set; }
 
+        [Required(ErrorMessage = "Вставьте  адрес электронной почтый")]
         [DataType(DataType.EmailAddress, ErrorMessage = "E-mail is not valid")]
         [Display(Name = "Адрес электронной почты")]
-        public string Line2 { get; set; }
-
-        [Display(Name = "Третий адрес")]
-        public string Line3 { get; set; }
+        public string Line2 { get; set; }        
 
         [Required(ErrorMessage = "Укажите город")]
         [Display(Name = "Город")]
