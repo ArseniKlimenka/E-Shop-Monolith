@@ -7,6 +7,8 @@ using System;
 using System.Collections.Generic;
 using System.Web.Mvc;
 using System.Configuration;
+using ElectroStore.WebUI.Infrastructure.Abstract;
+using ElectroStore.WebUI.Infrastructure.Concrete;
 
 namespace ElectroStore.WebUI.Infrastructure
 {
@@ -42,6 +44,8 @@ namespace ElectroStore.WebUI.Infrastructure
 
             kernel.Bind<IOrderProcessor>().To<EmailOrderProcessor>()
                 .WithConstructorArgument("settings", emailSettings);
+
+            kernel.Bind<IAuthProvider>().To<FormAuthProvider>();
         }
     }
 }

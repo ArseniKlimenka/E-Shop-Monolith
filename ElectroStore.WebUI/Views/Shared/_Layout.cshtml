@@ -11,7 +11,11 @@
 <body>    
     <div class="navbar navbar-inverse" style="background-color:aqua" role="navigation">
         <a class="navbar-brand" href="#">Moo-V Мир Кино</a>
-        @Html.Action("Summary", "Cart")       
+        @Html.Action("Summary", "Cart")
+        @Html.ActionLink("Режим Админа", "Login","Account", null, new
+                {
+                    @class = "btn btn-default"
+                })
     </div>
     <div class="row panel">
         <div id="categories" class="col-xs-3">
